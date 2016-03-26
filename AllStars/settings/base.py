@@ -24,6 +24,10 @@ SECRET_KEY = 'tbu=2!7kv(ll8naf#e_e8glr!g+oz4i6lw4j0gt01qf5=67^v+'
 
 ALLOWED_HOSTS = []
 
+# Database empty default
+DATABASES = {
+    'default':{}
+}
 
 # Application definition
 
@@ -34,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'rest_framework_swagger',
 ]
 
 MIDDLEWARE_CLASSES = [

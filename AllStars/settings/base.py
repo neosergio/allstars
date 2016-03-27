@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework_swagger',
+    'employees',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -54,6 +55,9 @@ MIDDLEWARE_CLASSES = [
 ]
 
 ROOT_URLCONF = 'AllStars.urls'
+
+# USER MODEL
+AUTH_USER_MODEL = "employees.Employee"
 
 TEMPLATES = [
     {

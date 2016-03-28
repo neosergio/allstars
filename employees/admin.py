@@ -6,6 +6,7 @@ class EmployeeAdmin(admin.ModelAdmin):
 	fieldsets = (
         (None, {'fields': ('username', 'email', 'password')}),
         ('Personal info', {'fields': ('first_name', 'last_name', 'role', 'skype_id')}),
+        ('Personal score', {'fields': ('last_month_score', 'current_month_score', 'level')}),
         ('Permissions', {'fields': ('groups', 
         							'user_permissions', 
         							'is_superuser',

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404
 from .models import Employee
 from .serializers import EmployeeSerializer, EmployeeListSerializer
 from rest_framework import status
@@ -11,3 +11,10 @@ def employees(request):
 		employees = Employee.objects.all()
 		serializer = EmployeeListSerializer(employees, many=True)
 		return Response(serializer.data, status=status.HTTP_200_OK)
+
+@api_view(['GET',])
+def employee(request, pk):
+    if request.method == 'GET':
+        employee = get_object_or_404(Employee, pk=pk)
+        serializer = EmployeeSerializer(employee)
+        return Response(serializer.data, status=status.HTTP_200_OK)

@@ -14,7 +14,7 @@ class Role(models.Model):
 
 class Employee(AbstractUser):
     role = models.ForeignKey(Role, null=True, blank=True)
-    skype_id = models.CharField(max_length=200)
+    skype_id = models.CharField(max_length=200, null=True, blank=True)
     last_month_score = models.PositiveIntegerField(default=0)
     current_month_score = models.PositiveIntegerField(default=0)
     level = models.PositiveIntegerField(default=0)

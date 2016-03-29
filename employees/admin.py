@@ -5,7 +5,7 @@ class RoleAdmin(admin.ModelAdmin):
     list_display = ("name",)
 
 class EmployeeAdmin(admin.ModelAdmin):
-    list_display = ("username", "email",)
+    list_display = ("username", "first_name", "last_name", "email",)
     fieldsets = (
         (None, {'fields': ('username', 'email', 'password')}),
         ('Personal info', {'fields': ('first_name', 'last_name', 'role', 'skype_id', 'avatar')}),

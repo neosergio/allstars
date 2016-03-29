@@ -11,6 +11,16 @@ class Role(models.Model):
 	def __str__(self):
 		return self.name
 
+class Category(models.Model):
+    name = models.CharField(max_length=100)
+    weight = models.PositiveSmallIntegerField(default=1)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name_plural = "categories"
+        ordering = ['weight']
 
 class Employee(AbstractUser):
     role = models.ForeignKey(Role, null=True, blank=True)
@@ -20,4 +30,5 @@ class Employee(AbstractUser):
     level = models.PositiveIntegerField(default=0)
     total_score = models.PositiveIntegerField(default=0)
     avatar = models.ImageField(upload_to='avatar', null=True, blank=True)
-		
+    categories = models.ManyToManyField(Category)
+

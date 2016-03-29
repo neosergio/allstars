@@ -1,5 +1,8 @@
 from django.contrib import admin
-from .models import Employee
+from .models import Employee, Role
+
+class RoleAdmin(admin.ModelAdmin):
+    list_display = ("name",)
 
 class EmployeeAdmin(admin.ModelAdmin):
     list_display = ("username", "email",)
@@ -14,4 +17,6 @@ class EmployeeAdmin(admin.ModelAdmin):
                                     'is_active',)}),
         ('History', {'fields': ('date_joined', 'last_login')})
     )
+
 admin.site.register(Employee, EmployeeAdmin)
+admin.site.register(Role, RoleAdmin)

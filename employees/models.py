@@ -2,14 +2,14 @@ from __future__ import unicode_literals
 
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-from django.utils.translation import ugettext_lazy as _
 
 
 class Role(models.Model):
-	name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100)
 
-	def __str__(self):
-		return self.name
+    def __str__(self):
+        return self.name
+
 
 class Category(models.Model):
     name = models.CharField(max_length=100)
@@ -22,6 +22,7 @@ class Category(models.Model):
         verbose_name_plural = "categories"
         ordering = ['weight']
 
+
 class Employee(AbstractUser):
     role = models.ForeignKey(Role, null=True, blank=True)
     skype_id = models.CharField(max_length=200, null=True, blank=True)
@@ -31,4 +32,3 @@ class Employee(AbstractUser):
     total_score = models.PositiveIntegerField(default=0)
     avatar = models.ImageField(upload_to='avatar', null=True, blank=True)
     categories = models.ManyToManyField(Category)
-

@@ -26,7 +26,7 @@ ALLOWED_HOSTS = []
 
 # Database empty default
 DATABASES = {
-    'default':{}
+    'default': {}
 }
 
 # Application definition

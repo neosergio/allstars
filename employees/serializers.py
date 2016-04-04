@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import Employee
+from .models import Category
 
 
 class EmployeeListSerializer(serializers.ModelSerializer):
@@ -34,3 +35,13 @@ class EmployeeSerializer(serializers.ModelSerializer):
                   'categories',
                   'is_active',
                   'last_login')
+
+
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category
+        depth = 1
+        fields = ('pk',
+                  'name',
+                  'weight')
+

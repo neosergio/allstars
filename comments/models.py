@@ -10,4 +10,4 @@ class Comment(models.Model):
                                        related_name='%(class)s_from')
     to_user = models.ForeignKey('employees.Employee',
                                      related_name='%(class)s_to')
-    category = models.ManyToManyField('employees.Category')
+    category = models.ForeignKey('employees.Category')

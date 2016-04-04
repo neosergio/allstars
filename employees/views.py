@@ -28,3 +28,11 @@ def categories(request):
         categories = Category.objects.all()
         serializer = CategorySerializer(categories, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+@api_view(['GET', ])
+def top_level(request, number):
+    if request.method == 'GET':
+        employees = Employee.objects.order_by('-level')[:number]
+        serializer = EmployeeListSerializer(employees, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
